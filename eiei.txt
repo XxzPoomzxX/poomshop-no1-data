@@ -181,10 +181,8 @@ async function arceus() {
 async function lvdl() {
     let e = new URL(window.location.href).searchParams.get("r");
     if (e) {
-        setTimeout(() => {
             adSpoof(atob(e), window.location.hostname);
             return
-        }, 5000);
     }
 }
 async function hohohub() {
@@ -253,7 +251,8 @@ function sleep(e) {
     return new Promise(t => setTimeout(t, e))
 }
 
-function adSpoof(e, t) {
+async function adSpoof(e, t) {
+    await sleep(5000)
     return new Promise((a, o) => {
         GM_xmlhttpRequest({
             method: "GET",
