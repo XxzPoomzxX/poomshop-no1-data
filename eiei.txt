@@ -45,15 +45,15 @@ async function codex() {
     }
     async function n(t) {
         if ((await (await fetch("https://api.codex.lol/v1/stage/authenticate", {
-                method: "POST",
-                headers: {
-                    "Android-Session": e,
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    tokens: t
-                })
-            })).json()).success) return !0;
+            method: "POST",
+            headers: {
+                "Android-Session": e,
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                tokens: t
+            })
+        })).json()).success) return !0;
         alert("Error: Failed to authenticate")
     }
 
@@ -181,8 +181,10 @@ async function arceus() {
 async function lvdl() {
     let e = new URL(window.location.href).searchParams.get("r");
     if (e) {
-        adSpoof(atob(e), window.location.hostname);
-        return
+        setTimeout(() => {
+            adSpoof(atob(e), window.location.hostname);
+            return
+        }, 5000);
     }
 }
 async function hohohub() {
@@ -221,7 +223,7 @@ async function hohohub() {
                 })).json()).token,
                 session: t
             })
-        }), await (e = `https://hohohubv-ac90f67762c4.herokuapp.com/api/step?step=${parseInt(document.getElementsByTagName("p")[0].innerHTML.split("checkpoint ")[1].split(" ")[0])+1}`, new Promise((t, a) => {
+        }), await (e = `https://hohohubv-ac90f67762c4.herokuapp.com/api/step?step=${parseInt(document.getElementsByTagName("p")[0].innerHTML.split("checkpoint ")[1].split(" ")[0]) + 1}`, new Promise((t, a) => {
             GM.xmlHttpRequest({
                 method: "GET",
                 url: e,
@@ -234,10 +236,10 @@ async function hohohub() {
                     "Sec-Fetch-User": "?1",
                     "Upgrade-Insecure-Requests": "1"
                 },
-                onload: function(e) {
+                onload: function (e) {
                     t(e)
                 },
-                onerror: function(e) {
+                onerror: function (e) {
                     a(e)
                 }
             })
@@ -252,11 +254,11 @@ function sleep(e) {
 }
 
 function adSpoof(e, t) {
-    return new Promise((resolve, reject) => {
+    return new Promise((a, o) => {
         GM_xmlhttpRequest({
             method: "GET",
             url: e,
-            anonymous: true,
+            anonymous: !0,
             headers: {
                 "user-agent": "Mozilla/5.0 (Linux; Android 8.1.0; GO3C Build/OPM2.171019.012; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/88.0.4324.141 Mobile Safari/537.36",
                 accept: "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
@@ -272,21 +274,15 @@ function adSpoof(e, t) {
                 "sec-fetch-user": "?1",
                 "upgrade-insecure-requests": "1"
             },
-            onload: function(response) {
-                // Delay the redirection by 5 seconds
-                setTimeout(() => {
-                    window.location.href = e;
-                    resolve();
-                }, 5000); // 5000 milliseconds = 5 seconds
+            onload: function (t) {
+                window.location.href = e
             },
-            onerror: function(error) {
-                console.log(error);
-                reject(error);
+            onerror: function (e) {
+                console.log(e)
             }
-        });
-    });
+        })
+    })
 }
-
 
 function linkvertiseSpoof(e) {
     return new Promise((t, a) => {
@@ -296,10 +292,10 @@ function linkvertiseSpoof(e) {
             headers: {
                 Referer: "https://linkvertise.com/"
             },
-            onload: function(e) {
+            onload: function (e) {
                 t(e.responseText)
             },
-            onerror: function(e) {
+            onerror: function (e) {
                 a(e)
             }
         })
@@ -307,10 +303,10 @@ function linkvertiseSpoof(e) {
 }
 async function getTurnstileResponse() {
     let e = "";
-    for (;;) {
+    for (; ;) {
         try {
             if (e = turnstile.getResponse()) break
-        } catch (t) {}
+        } catch (t) { }
         await sleep(1)
     }
     return turnstile.getResponse()
@@ -336,7 +332,7 @@ async function start() {
         case "boost.ink":
             await boostink()
     }
-}! function() {
+} ! function () {
     "use strict";
     if ("adshnk.com" === window.location.hostname || "adshrink.it" === window.location.hostname) {
         let e = setInterval(() => {
