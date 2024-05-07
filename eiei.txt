@@ -73,7 +73,7 @@ async function codex() {
                 p = await a(l);
             await sleep(6e3);
             let h = s(p),
-            d = h.link.includes("loot-links") ? "https://loot-links.com/" : (h.link.includes("loot-link") ? "https://loot-link.com/" : "");
+                d, u = await o(p, d = h.link.includes("loot-links") ? "https://loot-links.com/" : h.link.includes("loot-link") ? "https://loot-link.com/" : "https://linkvertise.com/");
             r.push({
                 uuid: l,
                 token: u
@@ -179,11 +179,12 @@ async function delta() {
 async function arceus() {
 }
 async function lvdl() {
-    /*let e = new URL(window.location.href).searchParams.get("r");
+    let e = new URL(window.location.href).searchParams.get("r");
     if (e) {
+        await sleep(5000)
         adSpoof(atob(e), window.location.hostname);
         return
-    }*/
+    }
 }
 async function hohohub() {
     try {
