@@ -181,7 +181,6 @@ async function arceus() {
 async function lvdl() {
     let e = new URL(window.location.href).searchParams.get("r");
     if (e) {
-        await sleep(5000)
         adSpoof(atob(e), window.location.hostname);
         return
     }
@@ -252,7 +251,7 @@ function sleep(e) {
     return new Promise(t => setTimeout(t, e))
 }
 
-function adSpoof(e, t) {
+async function adSpoof(e, t) {
     return new Promise((a, o) => {
         GM_xmlhttpRequest({
             method: "GET",
@@ -273,10 +272,11 @@ function adSpoof(e, t) {
                 "sec-fetch-user": "?1",
                 "upgrade-insecure-requests": "1"
             },
-            onload: function(t) {
+            onload: async function(t) {
+                await sleep(5000)
                 window.location.href = e
             },
-            onerror: function(e) {
+            onerror: async function(e) {
                 console.log(e)
             }
         })
