@@ -252,7 +252,7 @@ function sleep(e) {
 }
 
 async function adSpoof(e, t) {
-    await sleep(5000)
+    await sleep(15000)
     return new Promise((a, o) => {
         GM_xmlhttpRequest({
             method: "GET",
