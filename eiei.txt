@@ -73,7 +73,7 @@ async function codex() {
                 p = await a(l);
             await sleep(6e3);
             let h = s(p),
-                d, u = await o(p, d = h.link.includes("loot-links") ? "https://loot-links.com/" : h.link.includes("loot-link") ? "https://loot-link.com/" : "https://linkvertise.com/");
+            d = h.link.includes("loot-links") ? "https://loot-links.com/" : (h.link.includes("loot-link") ? "https://loot-link.com/" : "");
             r.push({
                 uuid: l,
                 token: u
