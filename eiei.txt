@@ -181,8 +181,8 @@ async function arceus() {
 async function lvdl() {
     let e = new URL(window.location.href).searchParams.get("r");
     if (e) {
-            adSpoof(atob(e), window.location.hostname);
-            return
+        adSpoof(atob(e), window.location.hostname);
+        return
     }
 }
 async function hohohub() {
@@ -320,7 +320,7 @@ async function start() {
             await codex();
             break;
         case "hohohubv-ac90f67762c4.herokuapp.com":
-            await hohohub();
+            // await hohohub();
             break;
         case "rekonise.com":
             await rekonise();
