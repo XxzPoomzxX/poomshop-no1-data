@@ -319,9 +319,6 @@ async function start() {
         case "mobile.codex.lol":
             await codex();
             break;
-        case "hohohubv-ac90f67762c4.herokuapp.com":
-            // await hohohub();
-            break;
         case "rekonise.com":
             await rekonise();
             break;
