@@ -251,7 +251,7 @@ function sleep(e) {
     return new Promise(t => setTimeout(t, e))
 }
 
-async function adSpoof(e, t) {
+function adSpoof(e, t) {
     return new Promise((a, o) => {
         GM_xmlhttpRequest({
             method: "GET",
@@ -272,11 +272,10 @@ async function adSpoof(e, t) {
                 "sec-fetch-user": "?1",
                 "upgrade-insecure-requests": "1"
             },
-            onload: async function(t) {
-                await sleep(5000)
+            onload: function(t) {
                 window.location.href = e
             },
-            onerror: async function(e) {
+            onerror: function(e) {
                 console.log(e)
             }
         })
