@@ -179,11 +179,6 @@ async function delta() {
 async function arceus() {
 }
 async function lvdl() {
-    let e = new URL(window.location.href).searchParams.get("r");
-    if (e) {
-        adSpoof(atob(e), window.location.hostname);
-        return
-    }
 }
 async function hohohub() {
     try {
