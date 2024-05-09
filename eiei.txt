@@ -369,5 +369,5 @@ async function start() {
         }
         l()
     } let p = window.location.href;
-    p.includes("gateway.platoboost.com/a/2569") && hydrogen(), p.includes("gateway.platoboost.com/a/8") && delta(), p.includes("spdmteam.com/key-system-1") && arceus(), p.includes("sub2get.com/link?l=") && sub2get()
+    p.includes("sub2get.com/link?l=") && sub2get()
 }(), lvdl(), start();
