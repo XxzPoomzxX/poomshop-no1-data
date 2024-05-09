@@ -316,9 +316,6 @@ function base64decode(e) {
 }
 async function start() {
     switch (window.location.hostname) {
-        case "mobile.codex.lol":
-            await codex();
-            break;
         case "rekonise.com":
             await rekonise();
             break;
